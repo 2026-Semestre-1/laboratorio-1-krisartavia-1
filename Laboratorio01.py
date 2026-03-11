@@ -44,7 +44,7 @@ def contadorDigitos(num,digito):
         return "Error: El num debe ser entero"
     if not isinstance(digito,int):
         return "Error: El digito debe ser entero"
-    if(digito < 0 and digito > 10):
+    if(digito < 0 or digito > 10):
         return "Error: El digito debe estar en el rango de 0 a 10" 
     if(num == 0):
         return 1
@@ -67,9 +67,36 @@ def contadorDigitos_Aux(num,digito):
 
 """
 Nombre: sumatoria_V2
-Entradas: inicio, fin, distancia
-Salidas: 
-Restricciones: Parámetros de tipo entero. Parámetro digito debe ser menor
-               a 10 y mayor igual a 0.
-               
-"""    
+Entradas: inicio, fin, distancia, excepcion.
+Salidas: suma total de los números desde el parámetro inicio hasta el final.
+Restricciones: Todos parámetros deben ser de tipo entero.
+Los párametros distancia y excepcion debe ser menor a 10 y mayor a 0.
+Los valores de inicio y fin deben ser positivos
+Si la distancia es un número negativo, el valor de fin debe ser menor a inicio
+Si la distancia es un número positivo, el valor de fin debe ser mayor a inicio
+Si excepcion es igual a cero, se debe ignorar este valor.
+
+"""
+def sumatoria_V2(inicio, fin, distancia, excepcion):
+    if not isinstance(inicio,int):
+        return "Error: El inicio debe ser entero"
+    if not isinstance(fin,int):
+        return "Error: El fin debe ser entero"
+    if not isinstance(distancia,int):
+        return "Error: El fin debe ser entero"
+    if not isinstance(excepcion,int):
+        return "Error: El excepcion debe ser entero"
+    if (distancia and excepcion < 0 or distancia and excepcion > 10):
+        return "Error: La distancia y la excepcion deben estar en el rango de 0 a 10"
+    if (distancia == -distancia):
+        if(fin < inicio):
+            return "Error: Fin debe ser menor a inicio"
+        return "Error: "
+    
+     
+     
+
+
+
+
+
